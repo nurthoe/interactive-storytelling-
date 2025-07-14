@@ -200,16 +200,23 @@ function endQuiz() {
 
   if (score >= 5) {
     resultText.textContent = "YOU PASSED";
+    resultText.classList.remove("glitch");
     document.body.classList.remove("glitch-fail");
+    playSound("win");
     document.getElementById("caption").classList.add("hidden");
   } else {
     resultText.textContent = "YOU LOSE";
+    resultText.classList.add("glitch");
     document.body.classList.add("glitch-fail");
+    playSound("lose");
     document.getElementById("caption").classList.remove("hidden");
   }
 
   scoreSummary.textContent = `You got ${score} correct and ${questions.length - score} wrong.`;
-  progressBar.style.width = `100%`;}
+  progressBar.style.width = `100%`;
+}
+
+
 
 
 retryBtn.addEventListener("click", () => {

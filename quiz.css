@@ -212,3 +212,52 @@ body.glitch-fail::before {
   color: #ff6666;
   font-family: 'Titillium Web', sans-serif;
 }
+/* Glitch Fail Mode */
+body.glitch-fail {
+  animation: glitch-fade 0.4s steps(2, end) infinite;
+}
+
+@keyframes glitch-fade {
+  0% {
+    background-position: 0 0;
+    filter: hue-rotate(0deg) contrast(1.2) brightness(1);
+  }
+  50% {
+    background-position: 10px 5px;
+    filter: hue-rotate(30deg) contrast(1.4) brightness(1.1);
+  }
+  100% {
+    background-position: -5px -10px;
+    filter: hue-rotate(-20deg) contrast(1.3) brightness(0.9);
+  }
+}
+
+/* YOU LOSE styling */
+#result-text {
+  font-family: var(--font-glitch);
+  font-size: 4.5rem;
+  color: var(--red);
+  animation: glitch 0.4s steps(2, end) 1;
+}
+
+body.glitch-fail #result-text {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  25% { text-shadow: -2px 0 lime, 2px 0 red; }
+  50% { text-shadow: 1px 1px #ff3b3b; }
+  75% { text-shadow: -1px -1px #ff3b3b; }
+  100% { text-shadow: 2px 2px red, -2px -2px blue; }
+}
+
+#caption {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ff3b3b;
+  font-family: 'Titillium Web', sans-serif;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
